@@ -1,3 +1,6 @@
+/*---------------------------------------*/
+/*       Com a LOGO no cabecalho        */
+/*--------------------------------------*/
 nav {
     background-color: #2A6DB0;
     padding: 15px;
@@ -35,7 +38,6 @@ nav ul li a:hover {
     background-color: #1f507a;
     border-radius: 5px;
 }
-/* esse e o fim da estilização do cabeçalho*/
 nav ul {
     list-style-type: none;
     padding: 0;
