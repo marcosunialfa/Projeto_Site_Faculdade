@@ -29,5 +29,22 @@
             </a>
         </ul>
     </nav>
+    <b>
+    <div class="contador-box"></div>
+        <h1>Total de Respostas</h1>
+        <p><strong><span id="contadorRespostas">0</span> pessoas responderam ao formulário.</strong></p>
+    </div>
+
+    <script>
+        // Recupera os dados do localStorage
+        let dados = JSON.parse(localStorage.getItem('dadosFormularios')) || [];
+
+        // Referência ao contador de respostas
+        const contadorRespostas = document.getElementById('contadorRespostas');
+
+        // Atualiza o contador com o número de respostas
+        contadorRespostas.textContent = dados.length;
+    </script>
+    </b>
 </body>
 </html>
