@@ -36,6 +36,7 @@ nav ul li a {
     color: white;
     font-size: 1.2em;
     padding: 10px 20px;
+    align-items: center;
     transition: background-color 0.3s ease;
 }
 
@@ -78,4 +79,9 @@ a:hover {
         display: block;
         margin: 10px 0;
     }
+}
+nav ul li a img.logo {
+    width: 200px; /* Define a largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-right: 10px; /* Adiciona espaço entre a imagem e o texto */
 }
