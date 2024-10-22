@@ -1,48 +1,81 @@
-body {
- color:aliceblue;
-    background-color: black;
-    font-family: Arial, Helvetica, sans-serif;
+/* Reset básico para remover margens e paddings padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-ul{
-    display:flex;
-    justify-content: space-between;
-    list-style-type: none;
-    align-items:center;
-    padding: 16px;
-    font-size: 30px;
-    font-weight: 700;
 
+/* Estilo básico para o corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
-a{
-    color: white;
-    text-decoration: none;
+
+/* Estilo para o cabeçalho */
+nav {
+    background-color: #2A6DB0;
+    padding: 15px;
 }
-img{
-    position: relative;
-    top: -120px;
-    left: 00px;
-    z-index: -10;
-    width: 1500px;
-    height: 350px;
-    
-}
-.center{
+
+nav ul {
+    list-style-type: none;
     text-align: center;
 }
-header img{
-    position: relative;
-    top: -120px;
-    left: 00px;
-    z-index: -10;
-    width: 20px;
-    height: 20px;
-    
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
 }
-footer img{
-    position: relative;
-    top: 200px;
-    left: 1300px;
-    z-index: -10;
-    width: 60px;
-    height: 60px;
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #1f507a;
+    border-radius: 5px;
+}
+
+/* Estilo para o header principal */
+header {
+    background-color: #eaeaea;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #2A6DB0;
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-size: 1.5em;
+    color: #666;
+}
+
+/* Estilo geral para os links */
+a {
+    text-decoration: none;
+    color: #2A6DB0;
+}
+
+a:hover {
+    color: #1f507a;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 }
