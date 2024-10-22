@@ -1,24 +1,16 @@
-/* Reset básico para remover margens e paddings padrão */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Estilo básico para o corpo */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
-
-/* Estilo para o cabeçalho */
 nav {
     background-color: #2A6DB0;
     padding: 15px;
+    width: 100%; /* Faz o cabeçalho ocupar 100% da largura */
+    position: fixed; /* Fixa o menu na parte superior da tela */
+    top: 0; /* Garante que o menu fique no topo */
+    left: 0; /* Alinha o menu à esquerda */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+nav ul {
+    list-style-type: none;
+    padding: 0; /* Remover o padding da lista */
+    margin: 0;  /* Remover a margem da lista */
 }
 
 nav ul {
@@ -28,15 +20,14 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    align-items: center;
+    font-size: 1.5em;
+    padding: 10px 15px;
     transition: background-color 0.3s ease;
 }
 
@@ -44,44 +35,23 @@ nav ul li a:hover {
     background-color: #1f507a;
     border-radius: 5px;
 }
-
-/* Estilo para o header principal */
-header {
-    background-color: #eaeaea;
-    padding: 60px 20px;
-    text-align: center;
+/* esse e o fim da estilização do cabeçalho*/
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-header h1 {
-    font-size: 3em;
-    color: #2A6DB0;
-    margin-bottom: 10px;
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
 }
 
-header h2 {
-    font-size: 1.5em;
-    color: #666;
+nav ul a img.logo {
+    width: 300px;
+    position: absolute; /* Posicionamento absoluto */
+    top: -32px; /* Posição do topo da página */
+    left: -5px; /* Posição do lado esquerdo */
+    /* Você pode alterar os valores de top, left, right, bottom para colocar a logo onde quiser */
 }
 
-/* Estilo geral para os links */
-a {
-    text-decoration: none;
-    color: #2A6DB0;
-}
-
-a:hover {
-    color: #1f507a;
-}
-
-/* Layout responsivo */
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-}
-nav ul li a img.logo {
-    width: 200px; /* Define a largura da imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    margin-right: 10px; /* Adiciona espaço entre a imagem e o texto */
-}
