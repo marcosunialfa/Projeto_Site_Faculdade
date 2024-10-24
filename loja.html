@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="pr-br">
-<head>
+<html lang="pt-BR">
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="loja.css">
+     <link rel="stylesheet" href="css/estilos_globais_fora.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
+    <script src="loja.js" async></script>
+
     <title>Loja</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="css/estilos_globais_fora.css">
-</head>
-<!--Estrutura do Cabesalho-->
-<body>
+  </head>
+  <body>
     <nav>
         <ul>
                 <a>
@@ -29,24 +33,58 @@
              </li>
         </ul>
     </nav>
- <!--card -->
-    <div class="main">
-    <div class="card card1">
-       <img src="Imagens/ovo.png" alt="Imagens1">
-       <h1>Ovo</h1>
-       <h2>R$ 10,00</h2>
-       <button class="btn">Compar</button>
-    </div>
-    <div class="card card2">
-       <img src="Imagens/Pao.png" alt="Imagens2">
-       <h1>Pão frances</h1>
-       <h2>R$ 10,00</h2>
-       <button class="btn">Compar</button>
-    </div>
-    <div class="card card3">
-       <img src="Imagens/Macan.png" alt="Imagens3">
-       <h2>R$ 10,00</h2>
-       <button class="btn">Compar</button>
-    </div>
-   </div>
- <body>
+    <main class="main-section">
+      <section class="container normal-section">
+        <h2 class="section-title">Posters</h2>
+            
+          <div class="movie-product">
+            <strong class="product-title">Banana</strong>
+            <!-- <br> -->
+            <img src="Imagens/Banana.png" alt="Poster 2" class="product-image">
+            <div class="product-price-container">
+              <span class="product-price">R$39,99</span>
+              <button type="button" class="button-hover-background">Adicionar ao carrinho</button>
+            </div>
+          </div>
+
+
+
+          <div class="movie-product">
+            <strong class="product-title">Ovo</strong>
+            <!-- <br> -->
+            <img src="Imagens/ovo.png" alt="Ovo" class="product-image">
+            <div class="product-price-container">
+              <span class="product-price">R$19,99</span>
+              <button type="button" class="button-hover-background">Adicionar ao carrinho</button>
+            </div>
+          </div>
+          <!-----------------------------------NAO MECHER------------------------------>
+      <section class="container normal-section">
+        <h2 class="section-title">Carrinho</h2>
+
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th class="table-head-item first-col">Item</th>
+              <th class="table-head-item second-col">Preço</th>
+              <th class="table-head-item third-col">Quantidade</th>
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+
+          <tfoot>
+            <tr>
+              <td colspan="3" class="cart-total-container">
+                <strong>Total</strong>
+                <span>R$0,00</span>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <button type="button" class="purchase-button">Finalizar Compra</button>
+      </section>
+    </main>
+  </body>
+</html>
