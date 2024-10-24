@@ -31,9 +31,9 @@ body {
 }
 
 .left-side .logo img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
+    width: 300px;
+    height: 250px;
+    position: center; /* Posicionamento absoluto */
 }
 
 .left-side p {
