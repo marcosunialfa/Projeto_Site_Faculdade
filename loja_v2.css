@@ -31,15 +31,71 @@ button {
 }
 
 
+/* sobre.html */
+/* Header */
+.main-header {
+  background-image: url("images/background-image.png");
+  background-position: 50% 39%;
 
-/* Master */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-/*Estruturaçao*/
+.main-nav {
+  width: 100%;
+}
+
+.header-list-container {
+  padding: 16px 0;
+}
+
+.nav-item {
+  text-transform: uppercase;
+  color: var(--white);
+  transition: 0.2s;
+}
+
+.nav-item:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+hr {
+  width: 100%;
+}
+
+.movie-title-large {
+  /* text-align: center; */
+  font-size: 54px;
+}
+
+
+/* Main */
+/* Psoter */
+.main-section {
+  padding: 40px 0 64px;
+}
+/* Disposisao */
 .container {
   display: flex;
   max-width: 300px;
   margin: 0 100px;
   padding: 0 16px
+}
+.container_carrinho {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 200px
+  bottom: 0; /* Alinha ao fundo da página */
+  left: 50%; /* Centraliza horizontalmente */
+
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 200px;
+  position: fixed;
+  bottom: 0; /* Alinha ao fundo da página */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Ajusta a posição para realmente ficar centralizado */
 }
 
 .section-title {
@@ -66,9 +122,8 @@ button {
   margin-top: 16px;
 }
 
-
-
 /* loja.html */
+
 /* Main */
 .normal-section + .normal-section {
   margin-top: 80px;
@@ -77,78 +132,54 @@ button {
 .products-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; /* Ou space-between conforme sua necessidade */
-  gap: 20px; /* Espaçamento entre os produtos */
-  margin-top: 20px;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 .movie-product {
-  flex: 1 1 200px; /* Ajusta a largura mínima dos produtos */
-  max-width: 220px; /* Define a largura máxima para os produtos */
-  margin: 10px;
-  background-color: #fff;
-  color: black;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-
-.product-image {
-  width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  align-items: center;
 }
 
 .product-title {
   font-size: 20px;
-  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+.product-image {
+  width: 240px; /* Flex wrap coloca 2 posters por linha, pq a seção tem 600px */
+  height: 144px;
 }
 
 .product-price-container {
-  margin-top: 5px;
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .product-price {
-  font-size: 25px;
-  color: #333;
+  margin-right: 12px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
 }
 
 .button-hover-background {
-  font-size: 17px;
-  padding: 10px 20px; /* Ajustei o padding para caber melhor */
-  background-color: #ff0000;
-  color: #fff;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.5s; /* Apliquei a transição corretamente */
-  
-}
-
-
-/*Butao esta ok*/
-.button-hover-background {
-    /*font-size: 17px;*/
-    font-size: auto;
-    padding: 2px 60px;
-    background-color:#ff0000;
-    color: #fff;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: 0.5s background;
-    cursor: pointer;
+  background: var(--red);
+  color: var(--white);
+  border: 2px solid var(--red);
+  border-radius: 6px;
+  padding: 4px 2px;
+  font-weight: bold;
 
   transition: 0.2s;
 }
 
 .button-hover-background:hover {
-    transition: 0.5s background;
-    background-color:#aa0505;
+  background: transparent;
+  color: var(--red);
 }
 
 /* tabela carrinho de compras */
@@ -245,6 +276,8 @@ button {
 .purchase-button:hover {
   filter: brightness(0.8);
 }
+
+
 
 /* Responsividade */
 @media (max-width: 584px) {
