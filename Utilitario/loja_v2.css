@@ -34,7 +34,7 @@ button {
 /* sobre.html */
 /* Header */
 .main-header {
-  background-image: url("images/background-image.png");
+  
   background-position: 50% 39%;
 
   display: flex;
@@ -77,25 +77,22 @@ hr {
 }
 /* Disposisao */
 .container {
-  display: flex;
-  max-width: 300px;
-  margin: 0 100px;
-  padding: 0 16px
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas de produtos */
+  gap: 16px; /* Espaçamento entre os produtos */
+  width: 900px; /* Largura ajustada para acomodar os produtos */
+  padding: 16px;
+  margin-left: 0; /* Alinha à esquerda */
 }
-.container_carrinho {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 200px
-  bottom: 0; /* Alinha ao fundo da página */
-  left: 50%; /* Centraliza horizontalmente */
 
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 200px;
+/* Carrinho de compras */
+.container_carrinho {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  width: 500px; /* Ajuste a largura conforme necessário */
+  padding: 16px;
   position: fixed;
-  bottom: 0; /* Alinha ao fundo da página */
-  left: 50%; /* Centraliza horizontalmente */
-  transform: translateX(-50%); /* Ajusta a posição para realmente ficar centralizado */
+  top: 0; /* Fixa ao topo da página */
+  right: 10px; /* Alinha ao lado direito da página */
 }
 
 .section-title {
@@ -103,7 +100,21 @@ hr {
   font-size: 32px;
   text-align: center;
   text-transform: uppercase;
+  margin: 50px 24px; /* Centraliza o título e adiciona espaçamento abaixo */
+  width: 900px; /* Mesma largura da .container */
+  padding: 16px 0; /* Espaçamento superior e inferior */
+}
+
+.section-title-carrinho{
+  font-family: 'Raleway', sans-serif;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
   margin-bottom: 24px;
+  /*-----------------------------------------*/
+  margin: 50px -250px; /* Centraliza o título e adiciona espaçamento abaixo */
+  width: 900px; /* Mesma largura da .container */
+  padding: 16px 0; /* Espaçamento superior e inferior */
 }
 
 .about-movie-image {

@@ -30,24 +30,45 @@ button {
   cursor: pointer;
 }
 
-
-
-/* Master */
-
-/*Estruturaçao*/
+/*Estruturação*/
 .container {
-  display: flex;
-  max-width: 300px;
-  margin: 0 100px;
-  padding: 0 16px
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas de produtos */
+  gap: 16px; /* Espaçamento entre os produtos */
+  width: 900px; /* Largura ajustada para acomodar os produtos */
+  padding: 16px;
+  margin-left: 0; /* Alinha à esquerda */
 }
 
+/* Carrinho de compras */
+.container_carrinho {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  width: 500px; /* Ajuste a largura conforme necessário */
+  padding: 16px;
+  position: fixed;
+  top: 0; /* Fixa ao topo da página */
+  right: 10px; /* Alinha ao lado direito da página */
+}
 .section-title {
   font-family: 'Raleway', sans-serif;
   font-size: 32px;
   text-align: center;
   text-transform: uppercase;
+  margin: 50px 24px; /* Centraliza o título e adiciona espaçamento abaixo */
+  width: 900px; /* Mesma largura da .container */
+  padding: 35px 0; /* Espaçamento superior e inferior */
+}
+
+.section-title-carrinho{
+  font-family: 'Raleway', sans-serif;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
   margin-bottom: 24px;
+  /*-----------------------------------------*/
+  margin: 50px -250px; /* Centraliza o título e adiciona espaçamento abaixo */
+  width: 900px; /* Mesma largura da .container */
+  padding: 16px 0; /* Espaçamento superior e inferior */
 }
 
 .about-movie-image {
@@ -69,7 +90,6 @@ button {
 
 
 /* loja.html */
-/* Main */
 .normal-section + .normal-section {
   margin-top: 80px;
 }
@@ -99,9 +119,11 @@ button {
 
 
 .product-image {
-  width: 100%;
+  width: 90%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  display: block;/*Para centralizadr no card*/
+  margin: 0 auto;
 }
 
 .product-title {
