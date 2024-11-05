@@ -87,8 +87,6 @@ button {
   margin-top: 16px;
 }
 
-
-
 /* loja.html */
 .normal-section + .normal-section {
   margin-top: 80px;
@@ -337,4 +335,24 @@ button {
   .movie-title-medium {
     margin-bottom: 16px;
   }
+}
+
+
+.customer-name-container {
+  margin-bottom: 20px; /* Espaço abaixo do campo de nome */
+  text-align: center; /* Centraliza o rótulo e o campo de entrada */
+}
+
+.customer-name-container label {
+  display: block; /* Para que o rótulo fique em uma linha separada */
+  font-weight: bold; /* Para destacar o rótulo */
+}
+
+.customer-name-input {
+  width: 100%; /* Faz com que o campo de entrada ocupe toda a largura disponível */
+  padding: 10px; /* Espaçamento interno */
+  border: 2px solid var(--blue); /* Cor da borda */
+  border-radius: 6px; /* Bordas arredondadas */
+  margin-top: 5px; /* Espaço acima do campo de entrada */
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px; /* Sombra leve */
 }

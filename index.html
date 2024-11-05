@@ -1,59 +1,124 @@
 <!DOCTYPE html>
-<html lang="pr-br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculdae</title>
+    <title>Faculdade</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="css/estilos_globais_fora.css">
 </head>
-<!--Estrutura do Cabesalho-->
 <body>
+    <!-- Estrutura do Cabeçalho -->
     <nav>
         <ul>
-                <a>
+            <li>
+                <a href="#">
                     <img src="Imagens/logo_dei.png" alt="Logo" class="logo">
                 </a>
-            <li>
-               <a href="Quem Somos.html">Quem Somos</a>
             </li>
-            <li>
-                <a href="loja.html">loja</a>
-             </li>
-            <li>
-                <a href="contact.html">Contato</a>
-            </li>
-            <li>
-                <a href="Formulario.html">Formulario</a>
-            </li>
-            <li>
-                <a href="Login.html">Entrar</a>
-             </li>
+            <li><a href="Quem Somos.html">Quem Somos</a></li>
+            <li><a href="loja.html">Loja</a></li>
+            <li><a href="contact.html">Contato</a></li>
+            <li><a href="Formulario.html">Formulário</a></li>
+            <li><a href="Login.html">Entrar</a></li>
         </ul>
     </nav>
-            <div class="inicio">
-                <img src="Imagens/supermercado.webp" alt="supermercado">
-                <div>
- <!--card -->
-    <div class="main">
-    <div class="card card1">
-       <img src="Imagens/ovo.png" alt="Imagens1">
-       <h1>Comida</h1>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius minus impedit repellendus quibusdam reprehenderit consectetur commodi voluptas possimus animi? Atque cum saepe nesciunt quam placeat iure quo, nobis dolore odio.</p>
-       <button class="btn">Saiba Mais</button>
+
+    <!-- Imagem de Introdução -->
+    <div class="inicio">
+        <img src="Imagens/supermercado.webp" alt="supermercado">
     </div>
-    <div class="card card2">
-       <img src="Imagens/Pao.png" alt="Imagens2">
-       <h1>Comida</h1>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius minus impedit repellendus quibusdam reprehenderit consectetur commodi voluptas possimus animi? Atque cum saepe nesciunt quam placeat iure quo, nobis dolore odio.</p>
-       <button class="btn">Saiba Mais</button>
-    </div>
-    <div class="card card3">
-       <img src="Imagens/Macan.png" alt="Imagens3">
-       <h1>Comida</h1>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius minus impedit repellendus quibusdam reprehenderit consectetur commodi voluptas possimus animi? Atque cum saepe nesciunt quam placeat iure quo, nobis dolore odio.</p>
-       <button class="btn">Saiba Mais</button>
-    </div>
-   </div>
- <body>
+
+    <!-- Corpo do Site -->
+    <main>
+        <h2>Produtos em Destaque</h2>
+        <div class="main">
+            <div class="card card1">
+                <img src="Imagens/Produtos/ovo.png" alt="Imagem Ovo">
+                <h1>Ovo</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn">Saiba Mais</button>
+            </div>
+            <div class="card card2">
+                <img src="Imagens/Produtos/Pao.png" alt="Imagem Pão">
+                <h1>Pão</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn">Saiba Mais</button>
+            </div>
+            <div class="card card3">
+                <img src="Imagens/Produtos/Macan.png" alt="Imagem Maçã">
+                <h1>Maçã</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn">Saiba Mais</button>
+            </div>
+        </div>
+        <!-- Seção de Oferta da Semana -->
+        <section class="weekly-deals">
+            <h2>Ofertas da Semana</h2>
+            <div class="deals-container">
+                <!-- Card de exemplo - repetir essa estrutura para cada oferta -->
+                <div class="deal-card">
+                    <img src="Imagens/Produtos/ovo.png" alt="Produto em Oferta">
+                    <p class="promotion">LEVE 5 PAGUE 3</p>
+                    <h3>Café L'or Cápsula Ristretto 20 unidades</h3>
+                    <p class="old-price">R$ 44,99 <span class="discount">-44%</span></p>
+                    <p class="new-price">R$ 24,99</p>
+                    <button class="add-button">ADICIONAR</button>
+                </div>
+                <div class="deal-card">
+                    <img src="Imagens/Produtos/Pao.png" alt="Produto em Oferta">
+                    <p class="promotion">LEVE 5 PAGUE 3</p>
+                    <h3>Café L'or Cápsula Ristretto 20 unidades</h3>
+                    <p class="old-price">R$ 44,99 <span class="discount">-44%</span></p>
+                    <p class="new-price">R$ 24,99</p>
+                    <button class="add-button">ADICIONAR</button>
+                </div>
+                <div class="deal-card">
+                    <img src="Imagens/Produtos/Macan.png" alt="Produto em Oferta">
+                    <p class="promotion">LEVE 5 PAGUE 3</p>
+                    <h3>Café L'or Cápsula Ristretto 20 unidades</h3>
+                    <p class="old-price">R$ 44,99 <span class="discount">-44%</span></p>
+                    <p class="new-price">R$ 24,99</p>
+                    <button class="add-button">ADICIONAR</button>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Seção de Benefícios -->
+        <section class="benefits">
+            <h2>Por Que Comprar Conosco?</h2>
+            <div class="benefit-items">
+                <div class="benefit-item">
+                    <img src="Imagens/artpoin-motoqueiro-png19.png" alt="Entrega Rápida">
+                    <h3>Entrega Rápida</h3>
+                    <p>Receba suas compras em tempo recorde, com total praticidade.</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="Imagens/Qualidade Garantida.png" alt="Qualidade Garantida">
+                    <h3>Qualidade Garantida</h3>
+                    <p>Todos os produtos são rigorosamente selecionados para você.</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="Imagens/Tempo.png" alt="Atendimento 24/7">
+                    <h3>Atendimento 24/7</h3>
+                    <p>Estamos sempre disponíveis para atender você.</p>
+                </div>
+            </div>
+        </section>
+
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Faculdade. Todos os direitos reservados.</p>
+            <ul>
+                <li><a href="politica_privacidade.html">Política de Privacidade</a></li>
+                <li><a href="termos_servico.html">Termos de Serviço</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
