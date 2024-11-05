@@ -1,18 +1,31 @@
-*{
+/* Estilos Globais */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-.main{
-    display: flex;
-    justify-content: center;
-}
-.inicio img {
-    width: 100%;
-    position: center; /* Posicionamento absoluto */
+
+/* Corpo do Site */
+main {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
 }
 
-.card{
+main h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Cards de Produtos */
+.main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
     margin: 50px;
     background-color: #fff;
     color: black;
@@ -20,24 +33,20 @@
     height: 250px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 4px 4px 12px #aaaa;
+    box-shadow: 4px 4px 12px #aaaaaa;
 }
 
-.card>h1{
-    font-size: 25px;
-    padding-top: 10px;
+.card img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.card>p{
-    text-align: center;
-    font-size: 17px;
-    padding: 10px 10px;
-}
-
+/* Botão */
 .btn {
     font-size: 17px;
     padding: 10px 50px;
-    border: nome;
+    border: none;
     background-color: #202020;
     color: #fff;
     border-radius: 10px;
@@ -47,13 +56,146 @@
 }
 
 .btn:hover {
-    transition: 0.5s background;
     background-color: #333;
 }
 
+/* Seção de Benefícios */
+.benefits {
+    padding: 40px 20px;
+    background-color: #d2d2d2;
+}
 
-.card>img {
+.benefits h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.benefit-items {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.benefit-item {
+    width: 200px;
+    text-align: center;
+}
+
+.benefit-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #202020;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+.footer-content ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-content ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-content ul li a:hover {
+    text-decoration: underline;
+}
+/* Estilo da seção "Ofertas da Semana" */
+.weekly-deals {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.weekly-deals h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    padding-left: 100px;
+}
+
+.deals-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.deal-card {
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.deal-card img {
     width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 5px;
+}
+
+.promotion {
+    color: white;
+    background-color: red;
+    padding: 5px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.deal-card h3 {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.old-price {
+    color: #757575;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+.discount {
+    background-color: #f57f17;
+    color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.new-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+.add-button {
+    background-color: #0058b6;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.add-button:hover {
+    background-color: #004080;
 }

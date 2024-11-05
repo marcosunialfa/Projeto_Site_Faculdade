@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo da Compra</title>
+    <link rel="stylesheet" href="dados_loja.css"> <!-- Link para seu CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Resumo da Compra</h1>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Nome do Cliente</th>
+                    <th>Total da Compra</th>
+                </tr>
+            </thead>
+            <tbody id="summary-body">
+                <!-- Os dados serão inseridos aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function loadSummaryData() {
+            const purchases = JSON.parse(localStorage.getItem("purchases")) || [];
+            const summaryBody = document.getElementById("summary-body");
+
+            if (purchases.length > 0) {
+                purchases.forEach(purchase => {
+                    const newRow = document.createElement("tr");
+                    newRow.innerHTML = `
+                        <td>${purchase.name}</td>
+                        <td>R$${purchase.amount}</td>
+                    `;
+                    summaryBody.appendChild(newRow);
+                });
+            } else {
+                const newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                    <td colspan="2">Nenhuma compra registrada.</td>
+                `;
+                summaryBody.appendChild(newRow);
+            }
+        }
+
+        // Carregar dados ao abrir a página
+        window.onload = loadSummaryData;
+    </script>
+</body>
+</html>

@@ -28,6 +28,9 @@ if (document.readyState == 'loading') {
     // Botão comprar
     const purchaseButton = document.getElementsByClassName("purchase-button")[0]
     purchaseButton.addEventListener("click", makePurchase)
+
+    // Carregar dados armazenados
+    loadStoredData();
   }
   
   function removeProduct(event) {
@@ -84,24 +87,58 @@ if (document.readyState == 'loading') {
     newCartProduct.getElementsByClassName("remove-product-button")[0].addEventListener("click", removeProduct)
     newCartProduct.getElementsByClassName("product-qtd-input")[0].addEventListener("change", checkIfInputIsNull)
   }
-  
+  //Mesagem final 
   function makePurchase() {
+    const customerName = document.getElementById("customer-name").value.trim();
+
     if (totalAmount === "0,00") {
-      alert("Seu carrinho está vazio!")
-    } else {   
-      alert(
-        `
-          Obrigado pela sua compra!
-          Valor do pedido: R$${totalAmount}\n
-          Volte sempre :)
-        `
-      )
-  
-      document.querySelector(".cart-table tbody").innerHTML = ""
-      updateTotal()
+        alert("Seu carrinho está vazio!");
+        return;
     }
-  }
-  
+
+    if (customerName === "") {
+        alert("Por favor, insira seu nome.");
+        return;
+    }
+
+    // Obter compras armazenadas do localStorage
+    let purchases = JSON.parse(localStorage.getItem("purchases")) || [];
+
+    // Adicionar nova compra ao array
+    purchases.push({ name: customerName, amount: totalAmount });
+
+    // Armazenar o array atualizado no localStorage
+    localStorage.setItem("purchases", JSON.stringify(purchases));
+
+    // Mensagem de agradecimento
+    alert(`
+        Obrigado pela sua compra, ${customerName}!
+        Valor do pedido: R$${totalAmount}\n
+        Volte sempre :)
+    `);
+
+    // Limpar o carrinho
+    document.querySelector(".cart-table tbody").innerHTML = "";
+    document.getElementById("customer-name").value = ""; // Limpar o campo de nome
+    updateTotal();
+
+    // Redirecionar para a página de resumo
+    window.location.href = "purchase_summary.html"; // Atualize o caminho se necessário
+}
+
+   ///////
+    // Armazenar o nome no localStorage
+    localStorage.setItem("customerName", customerName);
+    
+    // Adicionar produtos à tabela de resumo
+    addToPurchaseSummary(customerName);
+
+    // Limpar o carrinho
+    document.querySelector(".cart-table tbody").innerHTML = "";
+    document.getElementById("customer-name").value = ""; // Limpar o campo de nome
+    updateTotal();
+
+
   // Atualizar o valor total do carrinho
   function updateTotal() {
     const cartProducts = document.getElementsByClassName("cart-product")
@@ -118,3 +155,18 @@ if (document.readyState == 'loading') {
     totalAmount = totalAmount.replace(".", ",")
     document.querySelector(".cart-total-container span").innerText = "R$" + totalAmount
   }
+  function loadStoredData() {
+    const storedName = localStorage.getItem("customerName");
+    const storedAmount = localStorage.getItem("totalAmount");
+
+    // Se um nome foi armazenado, exibi-lo no campo de entrada
+    if (storedName) {
+        document.getElementById("customer-name").value = storedName;
+    }
+
+    // Se um valor foi armazenado, você pode usar a mesma lógica para o total
+    if (storedAmount) {
+        addToPurchaseSummary(storedName);
+    }
+}
+
