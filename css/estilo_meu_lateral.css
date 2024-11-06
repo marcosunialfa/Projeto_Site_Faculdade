@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 900vh;
+}
+
+nav.meu-lateral {
+    width: 80px;
+    height: 100%;
+    background-color: #1f507a;
+    padding: 40px 0;
+    box-shadow: 3px 0 0 #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.2s; /* Corrigido */
+}
+
+nav.meu-lateral:hover {
+    width: 300px;
+}
+
+.btn-expandir {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir > i {
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li.item-meu {
+    transition: background 0.3s;
+}
+
+ul li.item-meu:hover {
+    background-color: #1b446a; /* Mudança para destacar o item ao passar o mouse */
+}
+
+ul li.item-meu a {
+    color: #fff;
+    text-decoration: none; /* Corrigido de 'nome' para 'none' */
+    font-size: 20px;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center; /* Centraliza o texto verticalmente */
+    margin-bottom: 20px;
+    line-height: 1; /* Corrigido para um espaçamento mais consistente */
+}
+
+ul li.item-meu a .txt-link {
+    margin-left: 10px;
+    white-space: nowrap; /* Impede quebra de linha */
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+nav.meu-lateral:hover ul li.item-meu a .txt-link {
+    opacity: 1;
+}

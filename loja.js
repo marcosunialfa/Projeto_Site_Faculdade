@@ -90,14 +90,15 @@ if (document.readyState == 'loading') {
   //Mesagem final 
   function makePurchase() {
     const customerName = document.getElementById("customer-name").value.trim();
+    const customerAddress = document.getElementById("customer-address").value.trim(); // Captura o valor do endereço
 
     if (totalAmount === "0,00") {
         alert("Seu carrinho está vazio!");
         return;
     }
 
-    if (customerName === "") {
-        alert("Por favor, insira seu nome.");
+    if (customerName === "" || customerAddress === "") { // Verifica se o nome e o endereço estão preenchidos
+        alert("Por favor, insira seu nome e endereço.");
         return;
     }
 
@@ -105,7 +106,7 @@ if (document.readyState == 'loading') {
     let purchases = JSON.parse(localStorage.getItem("purchases")) || [];
 
     // Adicionar nova compra ao array
-    purchases.push({ name: customerName, amount: totalAmount });
+    purchases.push({ name: customerName, address: customerAddress, amount: totalAmount });
 
     // Armazenar o array atualizado no localStorage
     localStorage.setItem("purchases", JSON.stringify(purchases));
@@ -113,22 +114,27 @@ if (document.readyState == 'loading') {
     // Mensagem de agradecimento
     alert(`
         Obrigado pela sua compra, ${customerName}!
-        Valor do pedido: R$${totalAmount}\n
+        Endereço de entrega: ${customerAddress}
+        Valor do pedido: R$${totalAmount}
         Volte sempre :)
     `);
 
-    // Limpar o carrinho
-    document.querySelector(".cart-table tbody").innerHTML = "";
+    // Limpar o carrinho após a compra
+    document.querySelector(".cart-table tbody").innerHTML = ""; // Limpa todos os itens no carrinho
     document.getElementById("customer-name").value = ""; // Limpar o campo de nome
-    updateTotal();
+    document.getElementById("customer-address").value = ""; // Limpar o campo de endereço
+    updateTotal(); // Atualiza o total (fica "0,00")
 
-    // Redirecionar para a página de resumo
+    // Redirecionar para a página de resumo (ou qualquer outra que você preferir)
     window.location.href = "purchase_summary.html"; // Atualize o caminho se necessário
 }
 
-   ///////
-    // Armazenar o nome no localStorage
-    localStorage.setItem("customerName", customerName);
+    // Se um endereço foi armazenado, exibi-lo no campo de entrada
+    if (storedAddress) {
+        document.getElementById("customer-address").value = storedAddress;
+    }
+
+
     
     // Adicionar produtos à tabela de resumo
     addToPurchaseSummary(customerName);
@@ -169,4 +175,3 @@ if (document.readyState == 'loading') {
         addToPurchaseSummary(storedName);
     }
 }
-

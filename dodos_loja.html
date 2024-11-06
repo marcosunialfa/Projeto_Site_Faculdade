@@ -4,15 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumo da Compra</title>
-    <link rel="stylesheet" href="dados_loja.css"> <!-- Link para seu CSS -->
+    <!-- Link para seu CSS -->
+    <link rel="stylesheet" href="dados_loja.css">
+    <link rel="stylesheet" href="css/estilo_meu_lateral.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+    <nav class="meu-lateral">
+        <div class="btn-expandir">
+            <i class="bi bi-list"></i>
+        <ul>
+            <li class="item-meu">
+                <a href="index.html">
+                    <span class="icon"><i class="bi bi-house-door-fill"></i></span>
+                    <span class="txt-link">Home</span>
+                </a>
+            </li>
+            <li class="item-meu">
+                <a href="Resultado_For.html">
+                    <span class="icon"><i class="bi bi-chat-dots"></i></span>
+                    <span class="txt-link">Dodos do Formulario</span>
+                </a>
+            </li>
+            <li class="item-meu">
+                <a href="dodos_loja.html">
+                    <span class="icon"><i class="bi bi-basket"></i></span>
+                    <span class="txt-link">Dados da Loja</span>
+                </a>
+            </li>
+            <li class="item-meu">
+                <a href="Login.html">
+                    <span class="icon"><i class="bi bi-power"></i></span>
+                    <span class="txt-link">Sair</span>
+                </a>
+            </li>  
+        </ul>
+    </nav> 
     <div class="container">
         <h1>Resumo da Compra</h1>
         <table class="summary-table">
             <thead>
                 <tr>
                     <th>Nome do Cliente</th>
+                    <th>Endereço de Entrega</th>
                     <th>Total da Compra</th>
                 </tr>
             </thead>
@@ -24,27 +58,28 @@
 
     <script>
         function loadSummaryData() {
-            const purchases = JSON.parse(localStorage.getItem("purchases")) || [];
-            const summaryBody = document.getElementById("summary-body");
+    const purchases = JSON.parse(localStorage.getItem("purchases")) || [];
+    const summaryBody = document.getElementById("summary-body");
 
-            if (purchases.length > 0) {
-                purchases.forEach(purchase => {
-                    const newRow = document.createElement("tr");
-                    newRow.innerHTML = `
-                        <td>${purchase.name}</td>
-                        <td>R$${purchase.amount}</td>
-                    `;
-                    summaryBody.appendChild(newRow);
-                });
-            } else {
-                const newRow = document.createElement("tr");
-                newRow.innerHTML = `
-                    <td colspan="2">Nenhuma compra registrada.</td>
-                `;
-                summaryBody.appendChild(newRow);
-            }
-        }
-
+    if (purchases.length > 0) {
+        // Inverter a ordem dos itens para mostrar o mais recente primeiro
+        purchases.reverse().forEach(purchase => {
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                <td>${purchase.name}</td>
+                <td>${purchase.address}</td>
+                <td>R$${purchase.amount}</td>
+            `;
+            summaryBody.appendChild(newRow);
+        });
+    } else {
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+            <td colspan="3">Nenhuma compra registrada.</td>
+        `;
+        summaryBody.appendChild(newRow);
+    }
+}
         // Carregar dados ao abrir a página
         window.onload = loadSummaryData;
     </script>

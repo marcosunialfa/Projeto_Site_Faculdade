@@ -356,3 +356,19 @@ button {
   margin-top: 5px; /* Espaço acima do campo de entrada */
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px; /* Sombra leve */
 }
+.campo {
+  margin-bottom: 20px;
+}
+
+.campo label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.campo input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
