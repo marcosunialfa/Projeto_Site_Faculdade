@@ -31,6 +31,9 @@ if (document.readyState == 'loading') {
 
     // Carregar dados armazenados
     loadStoredData();
+
+    // Carregar dados armazenados
+    loadStoredData();
   }
   
   function removeProduct(event) {
@@ -87,6 +90,7 @@ if (document.readyState == 'loading') {
     newCartProduct.getElementsByClassName("remove-product-button")[0].addEventListener("click", removeProduct)
     newCartProduct.getElementsByClassName("product-qtd-input")[0].addEventListener("change", checkIfInputIsNull)
   }
+  //Mesagem final 
   //Mesagem final 
   function makePurchase() {
     const customerName = document.getElementById("customer-name").value.trim();
