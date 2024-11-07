@@ -130,7 +130,7 @@ if (document.readyState == 'loading') {
     updateTotal(); // Atualiza o total (fica "0,00")
 
     // Redirecionar para a página de resumo (ou qualquer outra que você preferir)
-    window.location.href = "purchase_summary.html"; // Atualize o caminho se necessário
+    window.location.href = "loja.html"; // Atualize o caminho se necessário
 }
 
     // Se um endereço foi armazenado, exibi-lo no campo de entrada

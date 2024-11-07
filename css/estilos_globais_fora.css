@@ -56,4 +56,34 @@ nav ul a img.logo {
     left: -5px; /* Posição do lado esquerdo */
     /* Você pode alterar os valores de top, left, right, bottom para colocar a logo onde quiser */
 }
+/* Rodapé */
+footer {
+    background-color: #202020;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+.footer-content ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-content ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-content ul li a:hover {
+    text-decoration: underline;
+}
+
 

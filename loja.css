@@ -12,7 +12,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/*Foi retirado ---body,--- Esta empurando a fonte em outros lugar*/
 body, button, input, textarea {
   font: 400 16px "Roboto", sans-serif;
 }
