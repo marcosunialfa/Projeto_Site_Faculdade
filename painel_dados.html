@@ -12,6 +12,7 @@
     <nav class="meu-lateral">
         <div class="btn-expandir">
             <i class="bi bi-list"></i>
+        </div>
         <ul>
             <li class="item-meu">
                 <a href="painel_dados.html">
@@ -22,7 +23,7 @@
             <li class="item-meu">
                 <a href="visualizar_dados.html">
                     <span class="icon"><i class="bi bi-chat-dots"></i></span>
-                    <span class="txt-link">Dodos do Formulario</span>
+                    <span class="txt-link">Dados do Formulário</span>
                 </a>
             </li>
             <li class="item-meu">
@@ -33,34 +34,79 @@
             </li>
             <li class="item-meu">
                 <a href="estoque_produtos/index.html">
-                    <span class="icon"><i class="bi bi-boxes"></i></span>
-                    <span class="txt-link">Estoque</span>
+                    <span class="icon"><i class="bi bi-cart-check"></i></span>
+                    <span class="txt-link">Cadastrar</span>
                 </a>
+                <li class="item-meu">
+                    <a href="estoque_produtos/verEstoque.html">
+                        <span class="icon"><i class="bi bi-boxes"></i></span>
+                        <span class="txt-link">Estoque</span>
+                    </a>
             </li>
             <li class="item-meu">
                 <a href="Login.html">
                     <span class="icon"><i class="bi bi-power"></i></span>
                     <span class="txt-link">Sair</span>
                 </a>
-            </li>  
+            </li>
         </ul>
-    </nav> 
+    </nav>
     <b>
-    <div class="contador-box"></div>
-        <h1>Total de Respostas</h1>
-        <p><strong><span id="contadorRespostas">0</span> pessoas responderam ao formulário.</strong></p>
-    </div>
-
+        <div class="contador-box">
+            <!-- Contador de respostas -->
+            <div class="contador-item">
+                <h1>Total de Respostas</h1>
+                <p><strong><span class="numero" id="contadorRespostas">0</span> pessoas responderam ao formulário.</strong></p>
+            </div>
+    
+            <!-- Linha de separação -->
+            <div class="linha-separacao"></div>
+    
+            <!-- Contador de produtos no estoque -->
+            <div class="contador-item">
+                <h1>Total de Produtos no Estoque</h1>
+                <p><strong><span class="numero" id="contadorProdutos">0</span> produtos estão no estoque.</strong></p>
+            </div>
+        </div>
+    </b>
+    
     <script>
+    // Função para contar o total de respostas do formulário
+    function contarRespostasFormulario() {
         // Recupera os dados do localStorage
         let dados = JSON.parse(localStorage.getItem('dadosFormularios')) || [];
-
-        // Referência ao contador de respostas
-        const contadorRespostas = document.getElementById('contadorRespostas');
-
+    
         // Atualiza o contador com o número de respostas
+        const contadorRespostas = document.getElementById('contadorRespostas');
         contadorRespostas.textContent = dados.length;
+    }
+    
+    // Função para contar o total de produtos no estoque
+    function contarTotalEstoque() {
+        if (typeof(Storage) !== "undefined") {
+            let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+            let totalProdutos = 0;
+    
+            // Soma a quantidade de cada produto no estoque
+            produtos.forEach(produto => {
+                totalProdutos += produto.quantidade;
+            });
+    
+            // Atualiza o contador com o total de produtos no estoque
+            document.getElementById("contadorProdutos").textContent = totalProdutos;
+        } else {
+            alert("A versão do seu navegador é muito antiga. Por isso, não será possível executar essa aplicação");
+        }
+    }
+    
+    // Chama as funções para atualizar os contadores ao carregar a página
+    document.addEventListener("DOMContentLoaded", function () {
+        contarRespostasFormulario(); // Atualiza as respostas do formulário
+        contarTotalEstoque(); // Atualiza o total de produtos no estoque
+    });
     </script>
-    </b>
+    
+
+    
 </body>
 </html>

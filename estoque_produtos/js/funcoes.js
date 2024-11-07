@@ -32,19 +32,33 @@ function validarProduto(idNomeProduto, idCodProduto, idQtidadeProduto) {
 // Retorno: nenhum
 //-----------------------------------------------------------------------------------------------------------
 function cadastrarProduto(produto, codig, qtidade) {
-    let novoProduto = {nome:produto, codigo:codig, quantidade:qtidade};
+    let novoProduto = {nome: produto, codigo: codig, quantidade: qtidade};
 
     if (typeof(Storage) !== "undefined") {
         let produtos = localStorage.getItem("produtos");
         if (produtos == null) produtos = []; // Nenhum produto ainda foi cadastrado
         else produtos = JSON.parse(produtos);
-        produtos.push(novoProduto); // Adiciona um novo produto
-        localStorage.setItem("produtos",JSON.stringify(produtos))
-        alert("Foram cadastradas com sucesso "+qtidade+" unidades do produto "+ produto+"!");
+
+        // Verifica se o produto com o mesmo código já existe
+        let produtoExistente = produtos.find(p => p.codigo === codig);
+
+        if (produtoExistente) {
+            // Incrementa a quantidade ao produto existente
+            produtoExistente.quantidade += qtidade;
+            alert(`Foram adicionadas ${qtidade} unidades ao produto existente: ${produto}!`);
+        } else {
+            // Adiciona um novo produto
+            produtos.push(novoProduto);
+            alert(`Foram cadastradas com sucesso ${qtidade} unidades do produto ${produto}!`);
+        }
+
+        // Salva o array atualizado no localStorage
+        localStorage.setItem("produtos", JSON.stringify(produtos));
         atualizarTotalEstoque("totalEstoque");
         location.reload();
-    } 
-    else alert("A versão do seu navegador é muito antiga. Por isso, não será possível executar essa aplicação");
+    } else {
+        alert("A versão do seu navegador é muito antiga. Por isso, não será possível executar essa aplicação");
+    }
 }
 
 //-----------------------------------------------------------------------------------------------------------
@@ -104,3 +118,62 @@ function listarEstoque() {
         alert("A versão do seu navegador é muito antiga. Por isso, não será possível visualizar o estoque!");
     }
 }
+//-------------------------
+// Adiciona o evento no campo de código do produto
+document.addEventListener("DOMContentLoaded", function () {
+    carregarTotalEstoque("totalEstoque");
+    listarEstoque();
+});
+
+// Função para adicionar quantidade ao produto existente ou exibir mensagem de erro
+function adicionarQuantidade() {
+    let codigo = document.getElementById("codProdutoAtualizar").value.trim();
+    let quantidade = parseInt(document.getElementById("qtidadeProdutoAtualizar").value.trim());
+
+    if (!codigo) {
+        alert("Por favor, insira o código do produto.");
+        return;
+    }
+
+    if (!quantidade || quantidade <= 0) {
+        alert("Por favor, insira uma quantidade válida.");
+        return;
+    }
+
+    let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+    let produtoEncontrado = produtos.find(produto => produto.codigo === codigo);
+
+    if (produtoEncontrado) {
+        // Atualiza a quantidade do produto
+        produtoEncontrado.quantidade += quantidade;
+        localStorage.setItem("produtos", JSON.stringify(produtos));
+        alert(`Foram adicionadas ${quantidade} unidades ao produto "${produtoEncontrado.nome}".`);
+        atualizarTabela();
+    } else {
+        alert("Produto não encontrado. Por favor, cadastre o produto primeiro.");
+    }
+}
+
+// Função para atualizar a tabela com os dados mais recentes do localStorage
+function atualizarTabela() {
+    let tabelaEstoque = document.getElementById("estoqueTable").getElementsByTagName("tbody")[0];
+    let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+    tabelaEstoque.innerHTML = ""; // Limpa a tabela antes de adicionar novos dados
+
+    produtos.forEach(produto => {
+        let linha = tabelaEstoque.insertRow();
+
+        let cellNome = linha.insertCell(0);
+        let cellCodigo = linha.insertCell(1);
+        let cellQuantidade = linha.insertCell(2);
+
+        cellNome.innerText = produto.nome;
+        cellCodigo.innerText = produto.codigo;
+        cellQuantidade.innerText = produto.quantidade;
+    });
+}
+
+// Outras funções já existentes, como carregarTotalEstoque, listarEstoque, etc.
+// ...
+

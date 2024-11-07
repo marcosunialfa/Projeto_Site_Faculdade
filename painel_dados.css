@@ -1,3 +1,4 @@
+/* Corpo da página */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -7,26 +8,53 @@ body {
     position: relative;
 }
 
-b {
+/* Caixa que envolve os contadores */
+.contador-box {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Largura do quadrado */
+    width: 350px; /* Largura ajustada para o quadrado */
     text-align: center;
     position: absolute; /* Permite posicionamento livre */
     top: 50px; /* Ajusta a posição a partir do topo */
-    left: 500px; /* Ajusta a posição a partir da esquerda */
+    left: 50%; /* Posiciona ao centro */
+    transform: translateX(-50%); /* Ajuste fino para centralizar */
 }
 
+/* Estilo para cada item de contador */
+.contador-item {
+    margin-bottom: 20px; /* Espaço entre os contadores */
+}
+
+/* Linha de separação entre os contadores */
+.linha-separacao {
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+/* Títulos dos contadores */
 h1 {
     margin-bottom: 20px;
-    font-size: 2.2em;
-    
+    /* font-size: 2.2em;  Ajuste do tamanho da fonte */
+    color: #333;
 }
 
+/* Parágrafos de contagem */
 p {
     font-size: 1.5em;
     color: #333;
-    
+    margin: 0;
+}
+
+/* Ajustes para o texto em negrito */
+strong {
+    font-weight: bold;
+}
+
+/* Estilo de contagem */
+.numero{
+    font-size: 2em; /* Aumenta o tamanho da contagem */
+    color: #ff0000;
 }

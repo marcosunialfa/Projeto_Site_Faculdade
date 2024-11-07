@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca no Estoque</title>
+    <style>
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #search {
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        tr.no-match {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar no estoque..." onkeyup="searchProducts()">
+    </div>
+
+    <table id="product-table">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dados dos produtos -->
+            <tr>
+                <td>Arroz</td>
+                <td>Alimentos</td>
+                <td>R$ 5,00</td>
+            </tr>
+            <tr>
+                <td>Feijão</td>
+                <td>Alimentos</td>
+                <td>R$ 4,00</td>
+            </tr>
+            <tr>
+                <td>Coca-Cola</td>
+                <td>Bebidas</td>
+                <td>R$ 3,00</td>
+            </tr>
+            <tr>
+                <td>Cereal</td>
+                <td>Alimentos</td>
+                <td>R$ 6,00</td>
+            </tr>
+            <!-- Mais produtos podem ser adicionados aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        // Função para buscar os produtos
+        function searchProducts() {
+            const searchQuery = document.getElementById("search").value.toLowerCase();
+            const tableRows = document.querySelectorAll("#product-table tbody tr");
+
+            tableRows.forEach(row => {
+                const productName = row.cells[0].textContent.toLowerCase();
+                const productCategory = row.cells[1].textContent.toLowerCase();
+
+                // Verifica se o nome ou a categoria do produto contém a busca
+                if (productName.includes(searchQuery) || productCategory.includes(searchQuery)) {
+                    row.style.display = "";  // Exibe a linha
+                } else {
+                    row.style.display = "none";  // Oculta a linha
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

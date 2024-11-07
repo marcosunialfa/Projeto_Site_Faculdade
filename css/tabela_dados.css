@@ -1,0 +1,67 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4; /* Cor de fundo suave */
+    margin: 0;
+    padding: 20px; /* Espaçamento interno */
+}
+
+.container {
+    max-width: 800px; /* Limitar a largura da tabela */
+    margin: auto; /* Centralizar */
+    background-color: #fff; /* Fundo branco para a tabela */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px; /* Espaçamento interno */
+}
+
+h1 {
+    text-align: center; /* Centralizar título */
+    color: #333; /* Cor do texto */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.summary-table {
+    width: 100%; /* Largura total da tabela */
+    border-collapse: collapse; /* Remover espaçamento entre células */
+}
+
+.summary-table th,
+.summary-table td {
+    padding: 12px; /* Espaçamento interno nas células */
+    text-align: left; /* Alinhar texto à esquerda */
+    border-bottom: 1px solid #ddd; /* Linha de separação */
+}
+
+.summary-table th {
+    background-color: #56c5db; /* Cor de fundo do cabeçalho */
+    color: #fff; /* Cor do texto do cabeçalho */
+    text-transform: uppercase; /* Letras maiúsculas */
+}
+
+.summary-table tr:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+}
+
+.summary-table td {
+    color: #333; /* Cor do texto nas células */
+}
+
+.summary-table td:last-child {
+    text-align: right; /* Alinhar o valor à direita */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduzir o espaçamento em telas menores */
+    }
+
+    .container {
+        padding: 15px; /* Reduzir o espaçamento interno */
+    }
+
+    .summary-table th,
+    .summary-table td {
+        padding: 8px; /* Ajustar o espaçamento nas células */
+    }
+}

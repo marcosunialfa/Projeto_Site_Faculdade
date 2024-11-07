@@ -1,51 +1,127 @@
-.alinharRotulos {
-    text-align: right;
+body {
+    font-family: Arial, sans-serif; /* Define a fonte para Arial ou sans-serif */
+    background-color: #f4f4f4; /* Define a cor de fundo do corpo da página */
+    margin: 0; /* Remove margens padrão da página */
+    padding: 20px; /* Adiciona espaçamento interno na página */
+    height: 100vh; /* Faz o corpo da página ocupar a altura total da tela */
 }
+
+.container {
+    max-width: 600px; /* Limita a largura máxima do contêiner central a 600px */
+    margin: 20px auto; /* Centraliza o contêiner horizontalmente com margem superior e inferior */
+    background-color: #fff; /* Define o fundo branco do contêiner */
+    padding: 20px; /* Adiciona espaçamento interno ao redor do conteúdo */
+    border-radius: 10px; /* Arredonda os cantos do contêiner */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil ao redor */
+}
+
+/* Aumentar o tamanho do texto */
+h1 {
+    font-size: 24px; /* Aumenta o tamanho do título */
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-size: 18px; /* Aumenta o tamanho dos rótulos */
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, textarea {
+    font-size: 16px; /* Aumenta o tamanho do texto dentro dos campos */
+    width: 100%;
+    padding: 12px; /* Aumenta o espaçamento interno dos campos */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 15px 25px; /* Aumenta o espaçamento interno dos botões */
+    font-size: 18px; /* Aumenta o tamanho do texto nos botões */
+    background-color: #2A6DB0;
+    color: white;
+    border: none;
+    border-radius: 500px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #1f507a;
+}
+
 .alinhaBtns {
-    width:30%;
-    background-color: black;
-    color:white;
-    border:0px;
-    padding:5px;
+    width: 40%; /* Ajusta a largura dos botões menores */
+    padding: 10px; /* Aumenta o espaçamento interno dos botões menores */
+    font-size: 16px; /* Aumenta o tamanho do texto nos botões menores */
+    background-color: #2A6DB0;
+    color: white;
+    border: 0;
     border-radius: 5px;
     cursor: pointer;
 }
+
+.alinhaBtns:hover {
+    background-color: #1f507a;
+}
+
 .carrinho {
-    width:300px;
-    position: relative;
-    left: 1000px;
-    float:right;
+    width: 300px; /* Define a largura fixa para o contêiner do carrinho */
+    position: relative; /* Define a posição como relativa para manipulação de posicionamento */
+    left: 1000px; /* Move o carrinho 1000px à direita */
+    float: right; /* Faz o contêiner do carrinho flutuar à direita */
 }
+
 .carrinho p {
-    display: inline;
+    display: inline; /* Exibe o parágrafo do carrinho como elemento em linha */
 }
+/* Estilo geral do contêiner */
 .table_index {
-    clear:both; 
-    background-color: rgb(213,97,100);
-    border-radius: 10px; 
-    color:white;
-    padding:10px;
-    width:400px;
-    margin:auto;
+    background-color: #fff;
+    border-radius: 8px;
+    color: #333;
+    padding: 20px;
+    width: 90%;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
 }
+
 caption {
-    color:rgb(213,97,100); 
-    font-weight: bold; 
-    font-size: 25px;
+    color: #333;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .table th, .table td {
-    border: 1px solid #000;
-    padding: 8px;
+    border: 1px solid #ddd;
+    padding: 12px;
     text-align: left;
 }
 
 .table th {
-    background-color: #f2f2f2;
+    background-color: #73c2fb;
+    color: #fff;
+    font-weight: bold;
 }
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #e9e9e9;
+}
+
