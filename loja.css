@@ -48,6 +48,10 @@ button {
   position: fixed;
   top: 0; /* Fixa ao topo da página */
   right: 10px; /* Alinha ao lado direito da página */
+  height: 98vh; /* Altura máxima da tela */
+  overflow-y: auto; /* Permite rolagem quando necessário */
+  display: flex;
+  flex-direction: column;
 }
 .section-title {
   font-family: 'Raleway', sans-serif;

@@ -8,25 +8,20 @@
     <link rel="stylesheet" href="css/estilos_globais_fora.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <a>
+   <!-- Estrutura do Cabeçalho -->
+   <nav>
+    <ul>
+        <li>
+            <a href="#">
                 <img src="Imagens/logo_dei.png" alt="Logo" class="logo">
             </a>
-            <li>
-               <a href="index.html">Inicio</a>
-            </li>
-            <li>
-               <a href="Quem Somos.html">Quem Somos</a>
-            </li>
-            <li>
-                <a href="contact.html">Contato</a>
-            </li>
-            <li>
-                <a href=login.html>login</a>
-             </li>
-        </ul>
-    </nav>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Quem Somos.html">Quem Somos</a></li>
+        <li><a href="loja.html">Loja</a></li>
+        <li><a href="Login.html">Entrar</a></li>
+    </ul>
+</nav>
     <div class="container">
         <h1>Preencha o Formulário</h1>
 
@@ -68,8 +63,17 @@
             // Salva os dados no localStorage
             localStorage.setItem('dadosFormularios', JSON.stringify(dados));
 
+            // Exibe a mensagem de confirmação
+            alert("Formulário enviado com sucesso!");
+
+            // Limpa os campos do formulário
+            document.getElementById('nome').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('telefone').value = "";
+            document.getElementById('mensagem').value = "";
+
             // Redireciona para a página de resultado
-            window.location.href = "Resultado_For.html";
+            window.location.href = "#";
         });
     </script>
 </body>

@@ -57,12 +57,16 @@ nav ul a img.logo {
     /* Você pode alterar os valores de top, left, right, bottom para colocar a logo onde quiser */
 }
 /* Rodapé */
+/* Certifique-se de que o body ocupe 100% da altura */
+
+/* Rodapé sempre no final */
 footer {
     background-color: #202020;
     color: white;
     padding: 20px;
     text-align: center;
     margin-top: 40px;
+    flex-shrink: 0; /* Evita que o rodapé seja "comprimido" pelo layout */
 }
 
 .footer-content p {
@@ -85,5 +89,3 @@ footer {
 .footer-content ul li a:hover {
     text-decoration: underline;
 }
-
-

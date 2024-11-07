@@ -60,22 +60,20 @@
             </li>
         </ul>
     </nav>
+    
     <!--Formulário: Nome, código e quantidade de produtos-->
     <form>
-        <!-- Seção para cadastro de produto -->
+        <!-- Seção para atualização do estoque -->
         <div class="container">
-            <h1>Cadastrar o Produto</h1>
-
-            <label for="nomeProduto">Nome do produto:</label>
-            <input type="text" id="nomeProduto" placeholder="Digite o nome do produto">
+            <h1>Atualizar Estoque de Produtos</h1>
+            
+            <label for="codProdutoAtualizar">Código do produto:</label>
+            <input type="text" id="codProdutoAtualizar" placeholder="Digite o código do produto">
     
-            <label for="codProdutoCadastro">Código do produto:</label>
-            <input type="text" id="codProdutoCadastro" placeholder="Digite o código do produto">
+            <label for="qtidadeProdutoAtualizar">Quantidade do produto:</label>
+            <input type="number" id="qtidadeProdutoAtualizar" placeholder="Digite a quantidade" min="1">
     
-            <label for="qtidadeProdutoCadastro">Quantidade do produto:</label>
-            <input type="number" id="qtidadeProdutoCadastro" placeholder="Digite a quantidade" min="1">
-    
-            <button type="button" onclick="validarProduto('nomeProduto', 'codProdutoCadastro', 'qtidadeProdutoCadastro')">Cadastrar</button>
+            <button type="button" onclick="adicionarQuantidade()">Adicionar ao Estoque</button>
         </div>
     </form>
 </body>
