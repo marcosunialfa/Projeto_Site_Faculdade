@@ -1,29 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Contato</title>
-    <link rel="stylesheet" href="formulario.css"> <!-- Link para o CSS -->
+    <link rel="stylesheet" href="css/Formulario.css">
     <link rel="stylesheet" href="css/estilos_globais_fora.css">
 </head>
 <body>
-   <!-- Estrutura do Cabeçalho -->
-   <nav>
-    <ul>
-        <li>
-            <a href="#">
-                <img src="Imagens/logo_dei.png" alt="Logo" class="logo">
-            </a>
-        </li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Quem Somos.html">Quem Somos</a></li>
-        <li><a href="loja.html">Loja</a></li>
-        <li><a href="Login.html">Entrar</a></li>
-    </ul>
-</nav>
+    <!-- Cabeçalho -->
+  <div id="header"></div>
+
+    <!-- Conteúdo -->
     <div class="container">
-        <h1>Preencha o Formulário</h1>
+        <h2>Preencha o Formulário</h2>
 
         <form id="formulario">
             <label for="nome">Nome:</label>
@@ -42,40 +32,53 @@
         </form>
     </div>
 
+    <!-- Script -->
     <script>
-        // Adiciona um evento ao formulário
         document.getElementById('formulario').addEventListener('submit', function(event) {
-            // Impede o envio do formulário da forma tradicional
             event.preventDefault();
 
-            // Captura os dados preenchidos
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const telefone = document.getElementById('telefone').value;
-            const mensagem = document.getElementById('mensagem').value;
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
 
-            // Recupera os dados salvos no localStorage ou cria um array vazio
-            let dados = JSON.parse(localStorage.getItem('dadosFormularios')) || [];
+            if (!nome || !email || !telefone || !mensagem) {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
 
-            // Adiciona os novos dados no array
-            dados.push({ nome, email, telefone, mensagem });
-
-            // Salva os dados no localStorage
-            localStorage.setItem('dadosFormularios', JSON.stringify(dados));
-
-            // Exibe a mensagem de confirmação
-            alert("Formulário enviado com sucesso!");
-
-            // Limpa os campos do formulário
-            document.getElementById('nome').value = "";
-            document.getElementById('email').value = "";
-            document.getElementById('telefone').value = "";
-            document.getElementById('mensagem').value = "";
-
-            // Redireciona para a página de resultado
-            window.location.href = "#";
+            fetch('processa_formulario.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    email: email,
+                    telefone: telefone,
+                    mensagem: mensagem
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    window.location.href = "formulario.html"; // Página de sucesso
+                } else {
+                    alert("❌ Erro: " + data.error);
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao enviar:", error);
+                alert("❌ Erro ao enviar o formulário. Tente novamente.");
+            });
         });
+        // Carregar o cabeçalho
+  fetch('backend/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
     </script>
 </body>
 </html>
-

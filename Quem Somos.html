@@ -1,70 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculdade</title>
-    <link rel="stylesheet" href="Quem_somos.css">
+    <title>Quem Somos - TechMarket</title>
+    <link rel="stylesheet" href="css/Quem_somos.css">
     <link rel="stylesheet" href="css/estilos_globais_fora.css">
 </head>
 <body>
-    <!-- Estrutura do Cabeçalho -->
-    <nav>
-        <ul>
-            <li>
-                <a href="#">
-                    <img src="Imagens/logo_dei.png" alt="Logo" class="logo">
-                </a>
-            </li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="loja.html">Loja</a></li>
-            <li><a href="Formulario.html">Contato</a></li>
-            <li><a href="Login.html">Entrar</a></li>
-        </ul>
-    </nav>
-    <section id="quem-somos">
-        <div class="container">
-            <h2>Quem Somos</h2>
-            <div class="content">
-                <div class="text">
-                    <p>Bem-vindo ao Supermercado Marcos!<p>
-                    </p>Somos uma rede de supermercados comprometida em oferecer produtos de alta qualidade com um atendimento amigável e de confiança.</p>
-                    <p>Nossa missão é proporcionar uma experiência de compra agradável e acessível, com uma vasta seleção de produtos que atendem às necessidades da sua família e do seu dia a dia.</p>
-                    <p>Venha nos visitar e descubra como podemos tornar suas compras mais convenientes e econômicas!</p>
-                    <div class="icons">
-                        <div class="icon-item">
-                            <img src="Imagens/Qualidade Garantida.png" alt="Ícone de Qualidade">
-                            <p>Qualidade Garantida</p>
-                        </div>
-                        <div class="icon-item">
-                            <img src="Imagens/artpoin-motoqueiro-png19.png" alt="Ícone de Variedade">
-                            <p>Entrega Rápida</p>
-                        </div>
-                        <div class="icon-item">
-                            <img src="Imagens/Tempo.png" alt="Ícone de Serviço">
-                            <p>Atendimento Ágil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="image">
-                    <img src="Imagens/supermercado.webp" alt="Foto do supermercado">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Rodapé -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Faculdade. Todos os direitos reservados.</p>
+
+    <div id="header"></div>
+
+    <main class="main-content">
+        <section class="about">
+            <h1>Quem Somos</h1>
+            <p>O <strong>TechMarket</strong> é um supermercado online criado para oferecer praticidade, segurança e economia no seu dia a dia. Trabalhamos para levar até você produtos de qualidade, entregues com agilidade e o melhor atendimento.</p>
+
+            <p>Nosso compromisso é proporcionar uma experiência de compra moderna, com transparência, confiança e comodidade, desde a escolha dos produtos até a entrega na sua casa.</p>
+
+            <p>Conte conosco para sua feira, suas compras mensais ou aquele produto especial que você precisa.</p>
+        </section>
+
+        <section class="mission">
+            <h2>Missão</h2>
+            <p>Facilitar a vida das pessoas oferecendo uma plataforma online de supermercado rápida, confiável e eficiente.</p>
+        </section>
+
+        <section class="vision">
+            <h2>Visão</h2>
+            <p>Ser referência no segmento de supermercado online, reconhecido pela excelência no atendimento e na qualidade dos serviços.</p>
+        </section>
+
+        <section class="values">
+            <h2>Valores</h2>
             <ul>
-                <li><a href="politica_privacidade.html">Política de Privacidade</a></li>
-                <li><a href="termos_servico.html">Termos de Serviço</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li>✔️ Comprometimento</li>
+                <li>✔️ Qualidade</li>
+                <li>✔️ Ética</li>
+                <li>✔️ Transparência</li>
+                <li>✔️ Agilidade</li>
+                <li>✔️ Satisfação do cliente</li>
             </ul>
-        </div>
-    </footer>
+        </section>
+    </main>
+
+    <div id="footer"></div> <!-- Carregar rodapé automático -->
+
+<script>
+  // Carregar o cabeçalho
+  fetch('backend/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
+
+  // Carregar o rodapé
+  fetch('backend/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+
 </body>
 </html>
-
-    
-    

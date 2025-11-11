@@ -1,91 +1,58 @@
-/*---------------------------------------*/
-/*       Com a LOGO no cabecalho        */
-/*--------------------------------------*/
-nav {
-    background-color: #2A6DB0;
-    padding: 15px;
-    width: 100%; /* Faz o cabeçalho ocupar 100% da largura */
-    position: fixed; /* Fixa o menu na parte superior da tela */
-    top: 0; /* Garante que o menu fique no topo */
-    left: 0; /* Alinha o menu à esquerda */
-    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
-}
-nav ul {
-    list-style-type: none;
-    padding: 0; /* Remover o padding da lista */
-    margin: 0;  /* Remover a margem da lista */
+/* reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* header */
+.header {
+  background: #0d47a1;
+  color: white;
+  padding: 1rem 2rem;
+    flex: none;
 }
 
-nav ul {
-    list-style-type: none;
-    text-align: center;
+.header__inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-nav ul li {
-    display: inline-block;
-    margin-right: 30px;
+.logo {
+  font-size: 1.75rem;
+  font-weight: bold;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5em;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease;
+.nav {
+  display: flex;
+  gap: 1rem;
 }
 
-nav ul li a:hover {
-    background-color: #1f507a;
-    border-radius: 5px;
-}
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.nav__link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: background 0.3s;
+  border-radius: 4px;
 }
 
-nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+.nav__link:hover,
+.nav__link--active {
+  background: rgba(255,255,255,0.2);
 }
 
-nav ul a img.logo {
-    width: 300px;
-    position: absolute; /* Posicionamento absoluto */
-    top: -32px; /* Posição do topo da página */
-    left: -5px; /* Posição do lado esquerdo */
-    /* Você pode alterar os valores de top, left, right, bottom para colocar a logo onde quiser */
+/* footer */
+.footer {
+  background:#0d47a1;
+  color:white;
+  padding:1rem 2rem;
+  text-align:center;
 }
-/* Rodapé */
-/* Certifique-se de que o body ocupe 100% da altura */
-
-/* Rodapé sempre no final */
-footer {
-    background-color: #202020;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    margin-top: 40px;
-    flex-shrink: 0; /* Evita que o rodapé seja "comprimido" pelo layout */
+.footer p {
+  font-size:0.9rem;
 }
 
-.footer-content p {
-    margin-bottom: 10px;
-}
-
-.footer-content ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.footer-content ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.footer-content ul li a:hover {
-    text-decoration: underline;
+/* responsivo */
+@media(max-width:768px){
+  .features { flex-direction:column; }
+  .promo__grid { flex-direction:column; align-items:center; }
 }

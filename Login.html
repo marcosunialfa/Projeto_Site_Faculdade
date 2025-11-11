@@ -4,31 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Spacer - Login</title>
-        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="css/estilos_globais_fora.css">
     </head>
     <body>
    <!-- Estrutura do Cabeçalho -->
-   <nav>
-    <ul>
-        <li>
-            <a href="#">
-                <img src="Imagens/logo_dei.png" alt="Logo" class="logo">
-            </a>
-        </li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="loja.html">Loja</a></li>
-        <li><a href="Quem Somos.html">Quem Somos</a></li>
-        <li><a href="Formulario.html">Contato</a></li>
-    </ul>
-</nav>
+<div id="header"></div>
+
         <div class="container">
             <div class="left-side">
                 <div class="logo">
-                    <img src="Imagens/Logo_Login.png" alt="Spacer Logo">
-                    <h1>Marcos Supermecado</h1>
+                    <img src="Imagens/tech.png" alt="Spacer Logo">
                 </div>
-                <p></p>
             </div>
             <div class="right-side">
                 <h2>LOGIN</h2>
@@ -44,7 +31,7 @@
                 </form>
             </div>
         </div>
-    
+               <div id="footer"></div>
         <script>
             // Vetor de usuários válidos
             const validUsers = [
@@ -64,11 +51,27 @@
     
                 if (user) {
                     // Redireciona para a página dashboard.html em caso de sucesso
-                    window.location.href = 'painel_dados.html';
+                    window.location.href = 'painel.html';
                 } else {
                     alert('Email or Password is incorrect. Please try again.');
                 }
             });
+
+  // Carregar o cabeçalho
+  fetch('backend/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
+
+  // Carregar o rodapé
+  fetch('backend/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+            
         </script>
     </body>
     </html>

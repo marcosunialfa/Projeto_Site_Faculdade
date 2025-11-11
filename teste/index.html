@@ -4,12 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TechMarket</title>
-  <link rel="stylesheet" href="css/index.css" />
-  <link rel="stylesheet" href="css/estilos_globais_fora.css" />
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
- 
-    <div id="header"></div>
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="logo">TechMarket</h1>
+      <nav class="nav">
+        <a href="index.html" class="nav__link nav__link--active">Início</a>
+        <a href="loja.html"    class="nav__link">Loja</a>
+        <a href="quem-somos.html" class="nav__link">Quem Somos</a>
+        <a href="contato.html" class="nav__link">Contato</a>
+        <a href="login.html"   class="nav__link">Entrar</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <section class="hero">
@@ -39,45 +48,26 @@
       <h2>Ofertas da Semana</h2>
       <div class="promo__grid">
         <div class="promo__item">
-          <img src="Imagens/Produtos/arroz_california_5kg_.jpeg" alt="Arroz 5kg" />
+          <img src="Imagens/Produtos/Arroz.png" alt="Arroz 5kg" />
           <strong>Arroz 5kg</strong>
-          <span>R$ 24,59</span>
+          <span>R$ 19,99</span>
         </div>
         <div class="promo__item">
-          <img src="Imagens/Produtos/acucar_cristal_2kg_.png" alt="Açúcar 2kg" />
-          <strong>Açucar Cristal 2kg</strong>
+          <img src="Imagens/Produtos/Feijao.png" alt="Feijão 1kg" />
+          <strong>Feijão 1kg</strong>
           <span>R$ 7,99</span>
         </div>
         <div class="promo__item">
-          <img src="Imagens/Produtos/oleo_de_soja.jpeg" alt="Óleo 900ml" />
+          <img src="Imagens/Produtos/Oleo.png" alt="Óleo 900ml" />
           <strong>Óleo 900ml</strong>
-          <span>R$ 7,95</span>
+          <span>R$ 5,99</span>
         </div>
       </div>
     </section>
   </main>
 
- <div id="footer"></div>
-
-
-<script>
-  // Carregar o cabeçalho
-  fetch('backend/header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header').innerHTML = data;
-    });
-
-  // Carregar o rodapé
-  fetch('backend/footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer').innerHTML = data;
-    });
-</script>
-
-</script>
+  <footer class="footer">
+    <p>&copy; 2025 TechMarket. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
-
-

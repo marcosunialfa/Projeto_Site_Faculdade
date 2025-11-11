@@ -2,14 +2,13 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resumo da Compra</title>
+    <title>Alertas de Estoque</title>
     <link rel="stylesheet" href="css/tabela_dados.css">
     <link rel="stylesheet" href="css/menu-lateral.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-     <nav class="meu-lateral">
+  <nav class="meu-lateral">
     <div class="btn-expandir"><i class="bi bi-list"></i></div>
     <ul>
       <li class="item-meu"><a href="painel.html"><span class="icon"><i class="bi bi-house-door-fill"></i></span><span class="txt-link">Home</span></a></li>
@@ -22,58 +21,64 @@
       <li class="item-meu"><a href="Login.html"><span class="icon"><i class="bi bi-power"></i></span><span class="txt-link">Sair</span></a></li>
     </ul>
   </nav>
+
     <div class="container">
-        <h1>Resumo da Compra</h1>
+        <h1>Alertas de Estoque</h1>
         <table class="summary-table">
             <thead>
                 <tr>
                     <th>Cliente</th>
                     <th>Telefone</th>
-                    <th>Endereço</th>
-                    <th>Produtos</th>
-                    <th>Total</th>
+                    <th>Produto</th>
+                    <th>Qtd. Solicitada</th>
+                    <th>Qtd. Disponível</th>
+                    <th>Compra ID</th>
+                    <th>Data</th>
                 </tr>
             </thead>
-            <tbody id="summary-body">
-                <!-- Os dados serão inseridos aqui -->
+            <tbody id="alertas-body">
+                <!-- Dados inseridos via JavaScript -->
             </tbody>
         </table>
     </div>
 
     <script>
-      window.onload = function() {
-    fetch('buscar_resumo_compras.php')
-    .then(response => response.json())
-    .then(data => {
-        const summaryBody = document.getElementById("summary-body");
+    fetch('listar_alertas.php')
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.getElementById("alertas-body");
 
-        if (data.success) {
-            if (data.compras.length > 0) {
-                data.compras.forEach(compra => {
-                    const newRow = document.createElement("tr");
-                    newRow.innerHTML = `
-                        <td>${compra.nome}</td>
-                        <td>${compra.telefone}</td>
-                        <td>${compra.endereco}</td>
-                        <td>${compra.produtos}</td>
-                        <td>R$${compra.total}</td>
+            if (data.success && data.alertas.length > 0) {
+                data.alertas.forEach(alerta => {
+                    const dataFormatada = alerta.data ? alerta.data : 'Data não informada';
+                    const telefone = alerta.telefone ? alerta.telefone : 'Sem telefone';
+
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${alerta.cliente}</td>
+                        <td>${telefone}</td>
+                        <td>${alerta.nome_produto} (${alerta.codigo_produto})</td>
+                        <td>${alerta.quantidade_solicitada}</td>
+                        <td>${alerta.quantidade_disponivel}</td>
+                        <td>#${alerta.compra_id}</td>
+                        <td>${dataFormatada}</td>
                     `;
-                    summaryBody.appendChild(newRow);
+                    tbody.appendChild(row);
                 });
             } else {
-                const newRow = document.createElement("tr");
-                newRow.innerHTML = `<td colspan="5">Nenhuma compra registrada.</td>`;
-                summaryBody.appendChild(newRow);
+                const row = document.createElement("tr");
+                row.innerHTML = `<td colspan="7">Nenhum alerta encontrado.</td>`;
+                tbody.appendChild(row);
             }
-        } else {
-            alert("Erro ao carregar os dados: " + data.error);
-        }
-    })
-    .catch(error => {
-        console.error("Erro:", error);
-        alert("❌ Erro ao buscar os dados.");
-    });
-}
+        })
+        .catch(error => {
+            console.error("Erro ao carregar alertas:", error);
+            const tbody = document.getElementById("alertas-body");
+            const row = document.createElement("tr");
+            row.innerHTML = `<td colspan="7">Erro ao carregar os alertas.</td>`;
+            tbody.appendChild(row);
+        });
+
     </script>
 </body>
 </html>

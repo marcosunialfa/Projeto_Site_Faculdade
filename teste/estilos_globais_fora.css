@@ -1,6 +1,9 @@
 /*---------------------------------------*/
 /*       Com a LOGO no cabecalho        */
 /*--------------------------------------*/
+* {
+    font-family: 'Times New Roman', Times, serif
+}
 nav {
     background-color: #2A6DB0;
     padding: 15px;
@@ -55,4 +58,37 @@ nav ul a img.logo {
     top: -32px; /* Posição do topo da página */
     left: -5px; /* Posição do lado esquerdo */
     /* Você pode alterar os valores de top, left, right, bottom para colocar a logo onde quiser */
+}
+/* Rodapé */
+/* Certifique-se de que o body ocupe 100% da altura */
+
+/* Rodapé sempre no final */
+footer {
+    background-color: #202020;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    flex-shrink: 0; /* Evita que o rodapé seja "comprimido" pelo layout */
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+.footer-content ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-content ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-content ul li a:hover {
+    text-decoration: underline;
 }

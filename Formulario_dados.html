@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resumo da Compra</title>
-    <link rel="stylesheet" href="css/tabela_dados.css">
+    <title>Dados Enviados</title>
     <link rel="stylesheet" href="css/menu-lateral.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/tabela_dados.css"> <!-- Usando o mesmo CSS -->
 </head>
 <body>
-     <nav class="meu-lateral">
+      <nav class="meu-lateral">
     <div class="btn-expandir"><i class="bi bi-list"></i></div>
     <ul>
       <li class="item-meu"><a href="painel.html"><span class="icon"><i class="bi bi-house-door-fill"></i></span><span class="txt-link">Home</span></a></li>
@@ -23,50 +23,45 @@
     </ul>
   </nav>
     <div class="container">
-        <h1>Resumo da Compra</h1>
+        <h1>Todos os Dados Enviados</h1>
         <table class="summary-table">
             <thead>
                 <tr>
-                    <th>Cliente</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
                     <th>Telefone</th>
-                    <th>Endereço</th>
-                    <th>Produtos</th>
-                    <th>Total</th>
+                    <th>Mensagem</th>
                 </tr>
             </thead>
-            <tbody id="summary-body">
+            <tbody id="dadosTabela">
                 <!-- Os dados serão inseridos aqui -->
             </tbody>
         </table>
     </div>
 
     <script>
-      window.onload = function() {
-    fetch('buscar_resumo_compras.php')
+        window.onload = function() {
+    fetch('buscar_dados_formulario.php') // ajuste o caminho se necessário
     .then(response => response.json())
     .then(data => {
-        const summaryBody = document.getElementById("summary-body");
-
         if (data.success) {
-            if (data.compras.length > 0) {
-                data.compras.forEach(compra => {
-                    const newRow = document.createElement("tr");
-                    newRow.innerHTML = `
-                        <td>${compra.nome}</td>
-                        <td>${compra.telefone}</td>
-                        <td>${compra.endereco}</td>
-                        <td>${compra.produtos}</td>
-                        <td>R$${compra.total}</td>
-                    `;
-                    summaryBody.appendChild(newRow);
-                });
-            } else {
-                const newRow = document.createElement("tr");
-                newRow.innerHTML = `<td colspan="5">Nenhuma compra registrada.</td>`;
-                summaryBody.appendChild(newRow);
-            }
+            const tabela = document.getElementById('dadosTabela');
+
+            data.dados.forEach(dado => {
+                const row = tabela.insertRow();
+
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+                const cell4 = row.insertCell(3);
+
+                cell1.textContent = dado.nome;
+                cell2.textContent = dado.email;
+                cell3.textContent = dado.telefone;
+                cell4.textContent = dado.mensagem;
+            });
         } else {
-            alert("Erro ao carregar os dados: " + data.error);
+            alert("Erro ao carregar dados: " + data.error);
         }
     })
     .catch(error => {

@@ -11,10 +11,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 /*Foi retirado ---body,--- Esta empurando a fonte em outros lugar*/
 body, button, input, textarea {
   font: 400 16px "Roboto", sans-serif;
+  
 }
 
 li {
@@ -42,19 +44,23 @@ button {
 
 /* Carrinho de compras */
 .container_carrinho {
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  width: 500px; /* Ajuste a largura conforme necessário */
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+              rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  width: 500px;
   padding: 16px;
   position: fixed;
-  top: 0; /* Fixa ao topo da página */
-  right: 10px; /* Alinha ao lado direito da página */
-  height: 98vh; /* Altura máxima da tela */
-  overflow-y: auto; /* Permite rolagem quando necessário */
+  top: 80px;
+  right: 10px;
+  height: 88vh;
+  overflow-y: auto;
+  background: white;
   display: flex;
   flex-direction: column;
 }
 .section-title {
-  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
+  font-family: 'Times New Roman', Times, serif;
   font-size: 32px;
   text-align: center;
   text-transform: uppercase;
@@ -64,7 +70,8 @@ button {
 }
 
 .section-title-carrinho{
-  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
+  font-family: 'Times New Roman', Times, serif;
   font-size: 32px;
   text-align: center;
   text-transform: uppercase;

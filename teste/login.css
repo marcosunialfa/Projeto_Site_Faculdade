@@ -1,0 +1,97 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagem de fundo */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/Users/marcoshenriquerodriguesdesouza/Fazenda/Imagens/IMG01.webp') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+/* Container central estilo vidro */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    width: 300px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+/* Botão */
+button.sign-in-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background-color: white;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button.sign-in-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Opções: lembrar e link */
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    margin: 10px 0;
+}
+
+.options a {
+    color: white;
+    text-decoration: none;
+}
+
+.register {
+    font-size: 0.8em;
+    margin-top: 15px;
+}
+
+.register a {
+    color: white;
+    text-decoration: underline;
+}
+/*Colocar cor no login e do password*/
+input::placeholder {
+    color: white;        /* Cor desejada */
+    opacity: 1;          /* aumenta a visibilidade */
+}

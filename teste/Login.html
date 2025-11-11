@@ -1,0 +1,59 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Spacer - Login</title>
+        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="estilos_globais_fora.css">
+    </head>
+    <body>
+            <!-- Estrutura do Cabeçalho -->
+    <nav>
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="Imagens/logo_dei.png" alt="Logo" class="logo">
+                </a>
+            </li>
+            <li><a href="Quem Somos/quem_somos.html">QUEM SOMOS</a></li>
+            <li><a href="Formulario.html">CONTATO</a></li>
+            <li><a href="Login.html">LOGIN</a></li>
+        </ul>
+    </nav>
+        <div class="background"></div>
+    
+        <div class="login-container">
+            <h2>LOGIN</h2>
+            <form id="loginForm">
+                <input type="text" id="login" placeholder="login" required>
+                <input type="password" id="password" placeholder="password" required>
+    
+                <button type="submit" class="sign-in-btn">LOGIN</button>
+
+            </form>
+        </div>
+    
+        <script>
+            const validUsers = [
+                { login: 'admin', senha: 'admin' },
+                { login: 'marcos', senha: 'marcos@123' }
+            ];
+    
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+    
+                const login = document.getElementById('login').value;
+                const senha = document.getElementById('password').value;
+    
+                const user = validUsers.find(user => user.login === login && user.senha === senha);
+    
+                if (user) {
+                    window.location.href = 'home.html';
+                } else {
+                    alert('Email or Password is incorrect. Please try again.');
+                }
+            });
+        </script>
+    </body>
+    
